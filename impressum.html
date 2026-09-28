@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Impressum · flow</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<script>
+(function () {
+  var d = document.documentElement, m = null;
+  d.className += ' js';
+  try { m = localStorage.getItem('flow-modus'); } catch (e) {}
+  if (m !== 'tag' && m !== 'nacht') {
+    var dunkel = false;
+    try { dunkel = window.matchMedia('(prefers-color-scheme: dark)').matches; } catch (e) {}
+    var h = new Date().getHours();
+    m = (dunkel || h >= 20 || h < 6) ? 'nacht' : 'tag';
+  }
+  d.setAttribute('data-modus', m);
+})();
+</script>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="unterseite">
+<header class="leiste">
+  <a class="logo" href="index.html" aria-label="flow, zur Startseite">flow<span class="logo-sonne" aria-hidden="true"></span></a>
+</header>
+<main class="abschnitt">
+  <div class="innen rechtstext">
+    <!-- ENTWURF: Anschrift, E-Mail, Telefon und Umsatzsteuerstatus fehlen noch. Vor öffentlicher Nutzung ergänzen und prüfen lassen. -->
+    <h1 class="ueberschrift">Impressum<span class="sonne" aria-hidden="true"></span></h1>
+    <h2>Angaben nach § 5 DDG</h2>
+    <p>Florian Piechullek<br>Florian Piechullek Communications &amp; Brandbuilding<br>Berlin</p>
+    <h2>Kontakt</h2>
+    <p>Über <a href="https://www.linkedin.com/in/florian-piechullek-digital-marketing/" rel="me noopener">LinkedIn</a>.</p>
+    <a class="zurueck" href="index.html">Zurück zum Anfang</a>
+  </div>
+</main>
+<footer class="fuss">
+  <div class="innen fuss-innen">
+    <div class="absender">
+      <a class="logo" href="index.html" aria-label="flow, zur Startseite">flow<span class="logo-sonne" aria-hidden="true"></span></a>
+      <span class="trenner" aria-hidden="true"></span>
+      <p class="protokoll-zeile">Digital Marketing Consulting<br>Florian / Flo</p>
+    </div>
+    <p class="erklaerung">Florian Piechullek Communications &amp; Brandbuilding · Berlin</p>
+    <nav class="fuss-nav" aria-label="Rechtliches und Profile">
+      <a href="https://www.linkedin.com/in/florian-piechullek-digital-marketing/" rel="me noopener">LinkedIn</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Datenschutz · flow</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<script>
+(function () {
+  var d = document.documentElement, m = null;
+  d.className += ' js';
+  try { m = localStorage.getItem('flow-modus'); } catch (e) {}
+  if (m !== 'tag' && m !== 'nacht') {
+    var dunkel = false;
+    try { dunkel = window.matchMedia('(prefers-color-scheme: dark)').matches; } catch (e) {}
+    var h = new Date().getHours();
+    m = (dunkel || h >= 20 || h < 6) ? 'nacht' : 'tag';
+  }
+  d.setAttribute('data-modus', m);
+})();
+</script>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="unterseite">
+<header class="leiste">
+  <a class="logo" href="index.html" aria-label="flow, zur Startseite">flow<span class="logo-sonne" aria-hidden="true"></span></a>
+</header>
+<main class="abschnitt">
+  <div class="innen rechtstext">
+    <!-- ENTWURF: Anschrift und E-Mail des Verantwortlichen fehlen noch. Text vor öffentlicher Nutzung mit Generator oder Fachperson prüfen lassen. -->
+    <h1 class="ueberschrift">Datenschutz<span class="sonne" aria-hidden="true"></span></h1>
+    <p>Kurz vorweg: Diese Seite setzt keine Cookies, nutzt kein Tracking und lädt keine Inhalte von fremden Servern. Die Schriften liegen auf demselben Server wie die Seite.</p>
+
+    <h2>Verantwortlich</h2>
+    <p>Florian Piechullek<br>Florian Piechullek Communications &amp; Brandbuilding<br>Berlin</p>
+
+    <h2>Hosting bei GitHub Pages</h2>
+    <p>Die Seite liegt bei GitHub Pages, einem Dienst der GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. Beim Aufruf verarbeitet GitHub technisch notwendige Daten wie deine IP-Adresse, Datum und Uhrzeit sowie Angaben zu Browser und Betriebssystem, um die Seite auszuliefern und abzusichern. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO, mein berechtigtes Interesse an einer sicheren und erreichbaren Website. Dabei können Daten in die USA übermittelt werden. Mehr dazu in der <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">Datenschutzerklärung von GitHub</a>.</p>
+
+    <h2>Kontaktformular</h2>
+    <p>Wenn du mir über das Formular schreibst, gehen deine Angaben (Name, Projekt, E-Mail oder Telefon, wie du mich gefunden hast) über den Dienst Form.taxi an mich. Ich nutze sie nur, um deine Anfrage zu beantworten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit es um einen möglichen Auftrag geht, sonst Art. 6 Abs. 1 lit. f DSGVO. Ich lösche die Daten, sobald sie dafür nicht mehr nötig sind und keine Aufbewahrungspflicht besteht.</p>
+
+    <h2>Tag- und Nachtmodus</h2>
+    <p>Wenn du den Schalter für Tag oder Nacht benutzt, merkt sich dein Browser diese Wahl lokal. Die Angabe bleibt auf deinem Gerät und wird nicht übertragen. Du kannst sie jederzeit über die Einstellungen deines Browsers löschen.</p>
+
+    <h2>Deine Rechte</h2>
+    <p>Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Außerdem kannst du dich bei einer Datenschutzaufsichtsbehörde beschweren, zum Beispiel bei der Berliner Beauftragten für Datenschutz und Informationsfreiheit.</p>
+    <a class="zurueck" href="index.html">Zurück zum Anfang</a>
+  </div>
+</main>
+<footer class="fuss">
+  <div class="innen fuss-innen">
+    <div class="absender">
+      <a class="logo" href="index.html" aria-label="flow, zur Startseite">flow<span class="logo-sonne" aria-hidden="true"></span></a>
+      <span class="trenner" aria-hidden="true"></span>
+      <p class="protokoll-zeile">Digital Marketing Consulting<br>Florian / Flo</p>
+    </div>
+    <p class="erklaerung">Florian Piechullek Communications &amp; Brandbuilding · Berlin</p>
+    <nav class="fuss-nav" aria-label="Rechtliches und Profile">
+      <a href="https://www.linkedin.com/in/florian-piechullek-digital-marketing/" rel="me noopener">LinkedIn</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

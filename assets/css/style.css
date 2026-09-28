@@ -1,0 +1,300 @@
+/* flow Onepager V0.1 · Markenwelt Canyon
+   Farben als Rollen: Tag auf :root, Nacht auf [data-modus="nacht"].
+   Die Sektion .zaesur trägt immer die Nachtwerte. */
+
+/* ---------- Schriften (lokal, SIL Open Font License) ---------- */
+@font-face{font-family:"Poppins";font-style:normal;font-weight:500;font-display:swap;src:url("../fonts/poppins-500.woff2") format("woff2")}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:600;font-display:swap;src:url("../fonts/poppins-600.woff2") format("woff2")}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:700;font-display:swap;src:url("../fonts/poppins-700.woff2") format("woff2")}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:800;font-display:swap;src:url("../fonts/poppins-800.woff2") format("woff2")}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:900;font-display:swap;src:url("../fonts/poppins-900.woff2") format("woff2")}
+@font-face{font-family:"Lato";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/lato-400.woff2") format("woff2")}
+@font-face{font-family:"Lato";font-style:normal;font-weight:700;font-display:swap;src:url("../fonts/lato-700.woff2") format("woff2")}
+
+/* ---------- Farbrollen ---------- */
+:root{
+  --buehne:#FBF6F1;--flaeche-2:#F3EBE3;--linie:#E8DDD3;--schrift:#2B2320;--schrift-2:#5A4E48;
+  --protokoll:#A34E2E;--sonne:#E07A55;--moonstone:#45596F;
+  --knopf-bg:#2B2320;--knopf-text:#F3EBE3;--knopf-punkt:#E07A55;
+  --w1:#F3A889;--w2:#E07A55;--w3:#8C5A48;--w4:#2B2320;--w2p:38%;--w3p:72%;
+  --l1:#F3A889;--l2:#F7D2BC;--l3:#C9D3E0;--l4:#E8B79A;--l5:#FFE9DC;
+  --saum:drop-shadow(-3px -2px 0 rgba(183,195,211,.95)) drop-shadow(3px 2px 0 rgba(224,122,85,.5)) drop-shadow(0 0 18px #E07A5533);
+  --fehler:#B3261E; /* nicht im Markenbuch, Freigabe offen */
+  --zaesur-bg:#1F1D1C;
+  color-scheme:light;
+}
+[data-modus="nacht"],.zaesur{
+  --buehne:#1F1D1C;--flaeche-2:#2A2725;--linie:#3A3532;--schrift:#F5EEE8;--schrift-2:#BFB2A8;
+  --protokoll:#F3A889;--sonne:#F3A889;--moonstone:#B7C3D3;
+  --knopf-bg:#F3A889;--knopf-text:#1F1D1C;--knopf-punkt:#45596F;
+  --w1:#FFE1CF;--w2:#F3A889;--w3:#C9785A;--w4:#C9785A;--w2p:45%;--w3p:100%;
+  --l1:#F3A889;--l2:#C9785A;--l3:#5B6F87;--l4:#6E4A3C;--l5:#F3A889;
+  --saum:drop-shadow(-3px -2px 0 rgba(183,195,211,.8)) drop-shadow(3px 2px 0 rgba(110,74,60,.95)) drop-shadow(0 0 18px #F3A88933);
+  --fehler:#F2B8B5;
+}
+[data-modus="nacht"]{color-scheme:dark}
+[data-modus="nacht"] .zaesur{--zaesur-bg:#2A2725;--flaeche-2:#1F1D1C}
+
+/* ---------- Grundlagen ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--buehne);color:var(--schrift);font-family:"Lato",system-ui,sans-serif;overflow-x:clip}
+p,h1,h2,h3,ol{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--moonstone);outline-offset:3px}
+[hidden]{display:none!important}
+.nur-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.sprung{position:absolute;left:16px;top:-60px;z-index:20;padding:12px 18px;border-radius:999px;background:var(--knopf-bg);color:var(--knopf-text);font:600 15px/1.2 "Poppins",sans-serif;text-decoration:none}
+.sprung:focus{top:12px}
+
+.innen{width:100%;max-width:1200px;margin:0 auto}
+.abschnitt{padding:64px 24px;scroll-margin-top:8px}
+.kopfzeile{display:flex;flex-direction:column;gap:14px;margin-bottom:32px}
+
+/* ---------- Typografie ---------- */
+.protokoll-zeile{font:400 12px/1.3 "Lato",sans-serif;color:var(--protokoll);letter-spacing:.02em}
+.nummer{font:400 14px/1.3 "Lato",sans-serif;color:var(--protokoll)}
+.ueberschrift{font-family:"Poppins",sans-serif;font-weight:700;font-size:34px;line-height:1.08;letter-spacing:-.02em;color:var(--schrift)}
+.sonne{display:inline-block;width:.2em;height:.2em;margin-left:.07em;border-radius:50%;background:var(--sonne)}
+.text{font-size:17px;line-height:1.55;color:var(--schrift)}
+.einleitung{font-size:18px;line-height:1.55;color:var(--schrift-2);max-width:760px}
+.erklaerung{font-size:15px;line-height:1.5;color:var(--schrift-2)}
+.hinweis{font:500 15px/1.3 "Poppins",sans-serif;color:var(--moonstone)}
+
+/* ---------- Logo, Knöpfe ---------- */
+.logo{font:900 24px/1 "Poppins",sans-serif;letter-spacing:-.06em;color:var(--schrift);text-decoration:none;display:inline-flex;align-items:baseline;min-height:44px;align-items:center}
+.logo-sonne{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--sonne);margin-left:2px;align-self:flex-end;margin-bottom:14px}
+.knopf{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border:0;border-radius:999px;background:var(--knopf-bg);color:var(--knopf-text);font:600 16px/1.2 "Poppins",sans-serif;text-decoration:none;cursor:pointer;transition:transform .2s;text-align:center}
+.knopf::after{content:"";flex-shrink:0;width:8px;height:8px;border-radius:50%;background:var(--knopf-punkt)}
+.knopf:hover{transform:translateY(-2px)}
+.knopf[disabled]{cursor:progress;opacity:.85;transform:none}
+.schalter,.menue-knopf{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;min-width:44px;padding:0 14px;border:1px solid var(--linie);border-radius:999px;background:var(--flaeche-2);color:var(--schrift);font:500 14px/1.2 "Poppins",sans-serif;cursor:pointer}
+.schalter-punkt{width:10px;height:10px;border-radius:50%;background:var(--sonne)}
+.schalter-text{display:none}
+html:not(.js) .schalter,html:not(.js) .menue-knopf{display:none}
+
+/* ---------- Kopf ---------- */
+.kopf{position:relative;overflow:hidden;padding-bottom:48px}
+.leiste{position:relative;z-index:4;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 24px 0}
+.leiste-rechts{display:flex;align-items:center;gap:10px}
+.logo-oben{display:none}
+.logo-mobil{position:relative;z-index:4;margin:6px 24px 0}
+
+/* Navigation mobil: aufklappbar */
+.nav{display:flex;flex-direction:column}
+.nav a{display:flex;align-items:center;min-height:52px;font:600 22px/1.2 "Poppins",sans-serif;color:var(--schrift);text-decoration:none;border-bottom:1px solid var(--linie)}
+.nav a:hover{color:var(--protokoll)}
+.js .nav{position:absolute;left:0;right:0;top:76px;z-index:5;padding:16px 24px 24px;background:var(--buehne);display:none}
+.js .nav.offen{display:flex}
+html:not(.js) .nav{order:3;width:100%}
+html:not(.js) .leiste{flex-wrap:wrap}
+
+/* Hero: Bildbühne in em der Wortgröße, damit das Foto in jeder Breite das „o“ überschneidet */
+.hero{--wg:clamp(110px,32.8vw,200px);display:grid}
+.hero-bild{position:relative;font-size:var(--wg);height:4.375em;margin-top:8px}
+.licht{position:absolute;left:.72em;top:.86em;width:2.5em;height:2.5em;border-radius:50%;background:conic-gradient(from 200deg,var(--l1),var(--l2),var(--l3),var(--l4),var(--l5),var(--l1));filter:blur(36px);opacity:.85}
+.wort{position:absolute;left:18px;top:.47em;font-family:"Poppins",sans-serif;font-weight:900;letter-spacing:-.06em;line-height:.85;white-space:nowrap;z-index:1;
+  background:linear-gradient(90deg,var(--w1) 0%,var(--w2) var(--w2p),var(--w3) var(--w3p),var(--w4) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:var(--saum)}
+.foto{position:absolute;left:calc(18px + 1.19em);bottom:0;width:2.03em;height:3.28em;border-radius:999px 999px 0 0;background:var(--flaeche-2);z-index:2;overflow:hidden}
+.foto img{display:block;width:100%;height:100%;object-fit:cover}
+.hero-text{display:flex;flex-direction:column;gap:18px;padding:32px 24px 0;position:relative;z-index:3}
+.hero-aktion{display:flex;flex-direction:column;gap:18px}
+.hero-aktion .hinweis{text-align:right}
+
+/* ---------- Karten ---------- */
+.raster{display:grid;gap:16px}
+.karte{background:var(--flaeche-2);border-radius:8px;padding:24px;display:flex;flex-direction:column;gap:10px;transition:transform .2s}
+.karte:hover{transform:translateY(-3px)}
+.karte-titel{font:700 21px/1.2 "Poppins",sans-serif;letter-spacing:-.02em;color:var(--schrift)}
+.karte-text{font-size:16px;line-height:1.55;color:var(--schrift-2)}
+.karte-gross .text{color:var(--schrift-2)}
+.pille{display:inline-flex;align-self:flex-start;padding:7px 14px;border-radius:14px;background:var(--buehne);color:var(--schrift);font:500 13px/1.35 "Poppins",sans-serif;margin-top:4px}
+#leistungen .erklaerung{margin-top:32px;max-width:760px}
+
+/* ---------- Zäsur Branchen ---------- */
+.zaesur{background:var(--zaesur-bg);color:var(--schrift)}
+.zaesur .raster{gap:32px}
+.ebene{display:flex;flex-direction:column;gap:10px;padding-top:20px;border-top:1px solid var(--linie)}
+.ebene .protokoll-zeile{font-size:14px}
+.ebene-titel{font:700 26px/1.15 "Poppins",sans-serif;letter-spacing:-.02em}
+.ebene .text{color:var(--schrift-2)}
+.leitsatz{margin-top:40px;font:700 26px/1.15 "Poppins",sans-serif;letter-spacing:-.02em;color:var(--schrift)}
+.band-zeile{display:flex;align-items:center;gap:12px;margin:20px -24px 0 0}
+.band{flex:1 1 auto;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 80%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 80%,transparent)}
+.band-spur{display:flex;align-items:center;gap:20px;padding-right:20px;width:max-content;animation:laufen 30s linear infinite}
+.band-wort{font:700 28px/1.1 "Poppins",sans-serif;letter-spacing:-.02em;color:var(--schrift-2);white-space:nowrap}
+.band-punkt{width:8px;height:8px;border-radius:50%;background:var(--sonne);flex-shrink:0}
+.deine{flex-shrink:0;font:700 28px/1.1 "Poppins",sans-serif;letter-spacing:-.02em;color:var(--protokoll);white-space:nowrap;text-underline-offset:6px;min-height:44px;display:inline-flex;align-items:center;padding-right:24px}
+@keyframes laufen{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.aus-einer-hand{display:flex;flex-direction:column;gap:10px;margin-top:32px;padding-top:24px;border-top:1px solid var(--linie)}
+.aus-einer-hand .ueberschrift{font-size:26px}
+.aus-einer-hand .text{color:var(--schrift-2)}
+
+/* ---------- Ablauf ---------- */
+.schritte{list-style:none;padding:0;margin-left:7px;display:flex;flex-direction:column}
+.schritt{display:flex;flex-direction:column;gap:10px;padding-left:28px;padding-bottom:32px;border-left:1px solid var(--schrift-2);position:relative}
+.schritt:last-child{border-left-color:transparent;padding-bottom:0}
+.schritt::before{content:"";position:absolute;left:-7px;top:2px;width:13px;height:13px;border-radius:50%;background:var(--sonne)}
+.kennzahl{font:800 24px/1.1 "Poppins",sans-serif;letter-spacing:-.03em;color:var(--protokoll)}
+.schritt-titel{font:700 21px/1.2 "Poppins",sans-serif;letter-spacing:-.02em}
+.schritt .text{color:var(--schrift-2)}
+
+/* ---------- Kontakt ---------- */
+.kontakt{background:var(--flaeche-2)}
+.anfrage{display:flex;flex-direction:column;gap:24px;max-width:1040px}
+.satz{font-size:22px;line-height:2.1;color:var(--schrift)}
+.luecke{font:inherit;line-height:1.3;color:var(--schrift);background:transparent;border:0;border-bottom:2px solid var(--schrift-2);border-radius:0;padding:0 4px;margin:0 2px;min-width:5ch;max-width:100%;width:8ch;vertical-align:baseline}
+.luecke::placeholder{color:var(--schrift-2);opacity:.75}
+.luecke:focus{border-bottom-color:var(--schrift);outline:none}
+.luecke:focus-visible{outline:2px solid var(--moonstone);outline-offset:3px}
+.luecke[aria-invalid="true"]{border-bottom-color:var(--fehler)}
+select.luecke{cursor:pointer;width:auto;-webkit-appearance:none;appearance:none;padding-right:22px;background-image:linear-gradient(45deg,transparent 50%,var(--schrift-2) 50%),linear-gradient(135deg,var(--schrift-2) 50%,transparent 50%);background-size:6px 6px,6px 6px;background-position:calc(100% - 10px) 55%,calc(100% - 4px) 55%;background-repeat:no-repeat}
+select.luecke option{color:#2B2320;background:#FBF6F1}
+#f-name{width:7ch}#f-projekt{width:23ch}#f-kontakt{width:19ch}
+.stern{color:var(--protokoll);font-size:.7em;vertical-align:super}
+.honig{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.fehlerblock{display:flex;flex-direction:column;gap:4px}
+.fehlerblock:empty{display:none}
+.fehlertext{font:600 15px/1.4 "Poppins",sans-serif;color:var(--fehler)}
+.formular-aktion{display:flex;flex-direction:column;gap:16px}
+.formular-aktion .knopf{align-self:stretch}
+.noch-nicht{font-size:17px;line-height:1.55;color:var(--schrift)}
+.noch-nicht a{color:var(--protokoll);text-underline-offset:4px}
+.angekommen{display:flex;flex-direction:column;gap:14px;max-width:720px}
+.angekommen:focus{outline:none}
+.angekommen .ueberschrift{font-size:30px}
+
+/* ---------- Fuß ---------- */
+.fuss{padding:40px 24px 120px;border-top:1px solid var(--linie)}
+.fuss-innen{display:flex;flex-direction:column;gap:20px}
+.absender{display:flex;align-items:center;gap:16px}
+.absender .protokoll-zeile{line-height:1.5}
+.trenner{width:1px;height:36px;background:var(--schrift-2)}
+.fuss-nav{display:flex;flex-wrap:wrap;gap:0 24px}
+.fuss-nav a{display:inline-flex;align-items:center;min-height:44px;color:var(--schrift-2);text-decoration:none;font-size:15px}
+.fuss-nav a:hover{color:var(--schrift)}
+
+/* ---------- Anfrage-Leiste mobil ---------- */
+.anfrage-leiste{position:fixed;left:0;right:0;bottom:0;z-index:10;padding:12px 16px calc(20px + env(safe-area-inset-bottom));background:var(--buehne);border-top:1px solid var(--linie);display:flex;transition:transform .25s,opacity .25s}
+.anfrage-leiste .knopf{flex-grow:1}
+.anfrage-leiste.weg{transform:translateY(110%);opacity:0;pointer-events:none}
+
+/* ---------- Tablet ---------- */
+@media (min-width:600px){
+  .abschnitt{padding:80px 40px}
+  .leiste{padding:24px 40px 0}
+  .logo-mobil{margin-left:40px}
+  .hero-text{padding:40px 40px 0;max-width:720px}
+  .raster-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fuss{padding-left:40px;padding-right:40px}
+  .band-zeile{margin-right:-40px}
+  .deine{padding-right:40px}
+  .hero-aktion{flex-direction:row;align-items:center;flex-wrap:wrap;gap:24px}
+  .hero-aktion .hinweis{text-align:left}
+  .formular-aktion{flex-direction:row;align-items:center;gap:24px}
+  .formular-aktion .knopf{align-self:auto}
+  .satz{font-size:26px}
+}
+
+/* ---------- Desktop ---------- */
+@media (min-width:1024px){
+  .abschnitt{padding:96px 80px}
+  .kopfzeile{gap:16px;margin-bottom:56px}
+  .protokoll-zeile{font-size:13px}
+  .nummer{font-size:15px}
+  .ueberschrift{font-size:clamp(44px,3.9vw,56px);line-height:1.05}
+  .text{font-size:18px}
+  .einleitung{font-size:20px}
+  .logo{font-size:30px}
+  .logo-sonne{width:7px;height:7px;margin-bottom:13px}
+
+  .kopf{padding-bottom:0}
+  .leiste{padding:28px 28px 0;gap:24px}
+  .leiste > .protokoll-zeile,.leiste-rechts{flex:0 0 260px}
+  .leiste-rechts{justify-content:flex-end;gap:20px}
+  .logo-oben{display:inline-flex}
+  .logo-mobil,.menue-knopf{display:none!important}
+  .schalter{padding:0 16px}
+  .schalter-text{display:inline}
+  .js .nav,.nav{position:static;display:flex;flex-direction:row;gap:36px;padding:0;background:none;order:0;width:auto}
+  .nav a{min-height:44px;font:500 15px/1.2 "Poppins",sans-serif;border:0}
+
+  /* Werte aus dem Artboard 1440: Wort 340px, links 64, oben 150; Foto links 720, 500 × 640; Text oben 480 */
+  .hero{--wg:clamp(240px,23.6vw,340px);max-width:1440px;margin:0 auto;grid-template-areas:"stapel"}
+  .hero-bild,.hero-text{grid-area:stapel}
+  .hero-bild{height:auto;min-height:2.3em;margin-top:0}
+  .licht{left:calc(64px + 1.75em);top:.2em;width:1.82em;height:1.82em;filter:blur(50px)}
+  .wort{left:64px;top:.26em}
+  .foto{left:calc(64px + 1.93em);width:1.47em;height:1.88em}
+  .hero-text{align-self:start;padding:calc(var(--wg) * 1.1) 0 96px 80px;gap:20px;width:calc(80px + min(580px, var(--wg) * 1.93 - 56px));max-width:none}
+  .hero-text .ueberschrift{font-size:clamp(36px,3.2vw,46px)}
+  .hero-text .text{max-width:460px}
+
+  .raster{gap:24px}
+  .raster-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .raster-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .karte{padding:28px;gap:12px}
+  .karte-titel{font-size:22px}
+  .karte-gross{padding:32px;gap:14px}
+  .karte-gross .karte-titel{font-size:28px}
+  #leistungen .erklaerung{margin-top:56px}
+
+  .zaesur .raster{gap:24px}
+  .ebene{gap:12px;padding-top:24px}
+  .ebene .protokoll-zeile{font-size:15px}
+  .ebene-titel{font-size:36px}
+  .leitsatz{margin-top:56px;font-size:36px}
+  .band-zeile{gap:36px;margin:24px 0 0}
+  .band{-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 88%,transparent)}
+  .band-spur{gap:36px;padding-right:36px;animation-duration:38s}
+  .band-wort,.deine{font-size:44px}
+  .band-punkt{width:10px;height:10px}
+  .deine{padding-right:0;text-underline-offset:8px}
+  .aus-einer-hand{flex-direction:row;align-items:baseline;gap:32px;margin-top:56px;padding-top:32px}
+  .aus-einer-hand .ueberschrift{font-size:36px;flex-shrink:0}
+
+  .schritte{margin-left:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+  .schritt,.schritt:last-child{gap:14px;padding:28px 0 0;border-left:0;border-top:1px solid var(--schrift-2)}
+  .schritt::before{top:-7px;left:0}
+  .kennzahl{font-size:26px}
+  .schritt-titel{font-size:24px}
+
+  .anfrage{gap:32px}
+  .satz{font-size:30px;line-height:2}
+  .angekommen .ueberschrift{font-size:40px}
+  .angekommen{gap:16px}
+
+  .fuss{padding:56px 80px}
+  .fuss-innen{flex-direction:row;align-items:center;justify-content:space-between;gap:32px}
+  .absender{gap:20px}
+  .absender .protokoll-zeile{font-size:13px}
+  .trenner{height:40px}
+  .fuss-nav{gap:0 28px}
+
+  .anfrage-leiste{display:none}
+}
+
+/* ---------- Weniger Bewegung ---------- */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .band-spur{animation:none}
+  .karte,.knopf,.anfrage-leiste{transition:none}
+  .karte:hover,.knopf:hover{transform:none}
+}
+
+/* Ohne JavaScript und ohne Form.taxi-ID kein Absenden-Knopf (Hinweis steht im noscript) */
+html:not(.js) form[data-form-id=""] .formular-aktion .knopf{display:none}
+
+/* ---------- Unterseiten (Impressum, Datenschutz, 404) ---------- */
+.unterseite{min-height:100vh;display:flex;flex-direction:column}
+.unterseite .leiste{padding-bottom:8px}
+.unterseite main{flex:1}
+.rechtstext{max-width:760px}
+.rechtstext h1{margin-bottom:32px}
+.rechtstext h2{font:700 22px/1.25 "Poppins",sans-serif;letter-spacing:-.02em;margin:40px 0 12px}
+.rechtstext p,.rechtstext li{font-size:17px;line-height:1.6;color:var(--schrift-2)}
+.rechtstext p + p{margin-top:12px}
+.rechtstext ul{padding-left:20px;margin:12px 0 0}
+.rechtstext a{color:var(--protokoll);text-underline-offset:4px}
+.zurueck{display:inline-flex;align-items:center;min-height:44px;margin-top:40px;font:600 16px/1.2 "Poppins",sans-serif;color:var(--protokoll);text-underline-offset:4px}
+.unterseite .fuss{padding-bottom:40px}

@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flo. Digitales Marketing aus einer Hand.</title>
+<meta name="description" content="Ich bin Flo. Ich mach digitales Marketing von der Idee bis zum fertigen Ding: Marke, Website, Social Media, Kampagnen. Tief in Immobilien und Finanzen, offen für deine Branche.">
+<!-- Testversion: nicht indexieren. Erst mit Flos Freigabe entfernen (siehe README). -->
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="Flo. Digitales Marketing aus einer Hand.">
+<meta property="og:description" content="Ich bin Flo. Ich mach digitales Marketing von der Idee bis zum fertigen Ding: Marke, Website, Social Media, Kampagnen. Tief in Immobilien und Finanzen, offen für deine Branche.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/poppins-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/lato-400.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Modus wählen, bevor gezeichnet wird: 1. eigene Wahl, 2. Systemeinstellung dunkel, 3. Ortszeit 20 bis 6 Uhr -->
+<script>
+(function () {
+  var d = document.documentElement, m = null;
+  d.className += ' js';
+  try { m = localStorage.getItem('flow-modus'); } catch (e) {}
+  if (m !== 'tag' && m !== 'nacht') {
+    var dunkel = false;
+    try { dunkel = window.matchMedia('(prefers-color-scheme: dark)').matches; } catch (e) {}
+    var h = new Date().getHours();
+    m = (dunkel || h >= 20 || h < 6) ? 'nacht' : 'tag';
+  }
+  d.setAttribute('data-modus', m);
+})();
+</script>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="sprung" href="#inhalt">Zum Inhalt springen</a>
+
+<!-- ============ KOPF ============ -->
+<header id="top" class="kopf">
+  <div class="leiste">
+    <p class="protokoll-zeile" id="protokoll">Hallo</p>
+
+    <nav class="nav" id="menue" aria-label="Hauptnavigation">
+      <a href="#ueber">Über mich</a>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#branchen">Branchen</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+
+    <div class="leiste-rechts">
+      <button type="button" class="schalter" id="schalter" aria-label="Zum Nachtmodus wechseln"><span class="schalter-punkt" aria-hidden="true"></span><span class="schalter-text">Nacht</span></button>
+      <button type="button" class="menue-knopf" id="menue-knopf" aria-expanded="false" aria-controls="menue">Menü</button>
+      <a class="logo logo-oben" href="#top" aria-label="flow, zum Seitenanfang">flow<span class="logo-sonne" aria-hidden="true"></span></a>
+    </div>
+  </div>
+  <a class="logo logo-mobil" href="#top" aria-label="flow, zum Seitenanfang">flow<span class="logo-sonne" aria-hidden="true"></span></a>
+
+  <div class="hero">
+    <div class="hero-bild" aria-hidden="true">
+      <div class="licht"></div>
+      <div class="wort">Hallo</div>
+      <!-- Foto folgt: später <img src="assets/img/flo.webp" width="…" height="…" alt="Flo, lachend"> in diese Fläche -->
+      <div class="foto"></div>
+    </div>
+    <div class="hero-text" id="inhalt">
+      <h1 class="ueberschrift">Ich bin Flo. Ich hab Bock auf coole Projekte<span class="sonne" aria-hidden="true"></span></h1>
+      <p class="text">Digitales Marketing, von der Idee bis zum fertigen Ding. Alles aus einer Hand.</p>
+      <div class="hero-aktion">
+        <a class="knopf" href="#kontakt">Erzähl mir von deinem Projekt</a>
+        <p class="hinweis">Oder scroll erst mal, ich beiß nicht.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ 02 ÜBER MICH ============ -->
+<section id="ueber" class="abschnitt">
+  <div class="innen">
+    <div class="kopfzeile">
+      <p class="nummer">02 / Über mich</p>
+      <h2 class="ueberschrift">Ich bin Flo<span class="sonne" aria-hidden="true"></span></h2>
+      <p class="hinweis">Das kriegst du als Mensch.</p>
+      <p class="einleitung">Ich kann nicht anders, als mich in Dinge reinzudenken. Neue Branche, neues Tool, neues Problem: Ich will wissen, wie es funktioniert, und hör erst auf, wenn ich es verstanden hab. Das ist anstrengend für meinen Kalender und ziemlich praktisch für dich.</p>
+    </div>
+    <div class="raster raster-4">
+      <article class="karte">
+        <h3 class="karte-titel">Ich frag viel<span class="sonne" aria-hidden="true"></span></h3>
+        <p class="karte-text">Bevor ich baue, will ich verstehen, was du wirklich willst. Oft ist das etwas anderes als das, was in der ersten Mail steht.</p>
+      </article>
+      <article class="karte">
+        <h3 class="karte-titel">Ich bin schnell drin<span class="sonne" aria-hidden="true"></span></h3>
+        <p class="karte-text">Deine Branche ist neu für mich? Gib mir ein paar Tage. Dann reden wir über deine Themen und nicht über Marketing.</p>
+      </article>
+      <article class="karte">
+        <h3 class="karte-titel">Ich bleib dran<span class="sonne" aria-hidden="true"></span></h3>
+        <p class="karte-text">Konzepte hab ich viele. Fertige Sachen hab ich mehr. Am Ende steht immer etwas, das du benutzen kannst.</p>
+      </article>
+      <article class="karte">
+        <h3 class="karte-titel">Ich hab Spaß dabei<span class="sonne" aria-hidden="true"></span></h3>
+        <p class="karte-text">Und das merkt man. In Terminen, in Texten, im Ergebnis.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 LEISTUNGEN ============ -->
+<section id="leistungen" class="abschnitt">
+  <div class="innen">
+    <div class="kopfzeile">
+      <p class="nummer">03 / Leistungen</p>
+      <h2 class="ueberschrift">Das kann ich<span class="sonne" aria-hidden="true"></span></h2>
+      <p class="hinweis">Das kriegst du als Ergebnis.</p>
+      <p class="einleitung">Vier Arten, wie wir zusammenarbeiten können. Du musst dich nicht entscheiden, das machen wir im Gespräch.</p>
+    </div>
+    <div class="raster raster-2">
+      <article class="karte karte-gross">
+        <h3 class="karte-titel">Marke bauen<span class="sonne" aria-hidden="true"></span></h3>
+        <p class="text">Du weißt, was du kannst. Draußen versteht es keiner. Wir finden raus, wofür du stehst, und machen Worte daraus, die auch in fünf Jahren noch stimmen.</p>
+        <p class="pille">Konzept und Beratung · Über fünf Jahre Markenarbeit im B2B, rund 20 CEOs positioniert</p>
+      </article>
+      <article class="karte karte-gross">
+        <h3 class="karte-titel">Auftritt starten<span class="sonne" aria-hidden="true"></span></h3>
+        <p class="text">Eine Website, die zeigt, wer du bist, statt zu behaupten, dass du gut bist. Von der Positionierung bis online, schlank gebaut, ohne Cookie-Banner.</p>
+        <!-- Nach Freigabe von Michi: " · Zuletzt: MD Elektro, Positionierung bis Livegang" ergänzen -->
+        <p class="pille">Projekt mit klarem Ende</p>
+      </article>
+      <article class="karte karte-gross">
+        <h3 class="karte-titel">Kanal aufbauen<span class="sonne" aria-hidden="true"></span></h3>
+        <p class="text">Social Media von null auf Stimme. Ich bau den Kanal, ich füll ihn, und ich zeig dir, wie er ohne mich weiterläuft.</p>
+        <p class="pille">Langfristig · LinkedIn, Instagram, TikTok</p>
+      </article>
+      <article class="karte karte-gross">
+        <h3 class="karte-titel">Leute zusammenbringen<span class="sonne" aria-hidden="true"></span></h3>
+        <p class="text">Kampagnen und Events mit Creators. Ehrlich gesagt mach ich das auch, weil ich gern neue Leute treffe. Dein Netzwerk ist dein Kapital, meins auch.</p>
+        <p class="pille">Kampagne oder Event</p>
+      </article>
+    </div>
+    <p class="erklaerung">Dazu kommt alles, was sonst noch dazugehört: Performance Marketing, Digital out of Home, Print, wenn es sein muss. Frag einfach.</p>
+  </div>
+</section>
+
+<!-- ============ 04 BRANCHEN (Zäsur, immer dunkel) ============ -->
+<section id="branchen" class="abschnitt zaesur">
+  <div class="innen">
+    <div class="kopfzeile">
+      <p class="nummer">04 / Branchen</p>
+      <h2 class="ueberschrift">Wo ich zuhause bin<span class="sonne" aria-hidden="true"></span></h2>
+      <p class="hinweis">Hier versteh ich dich ab dem ersten Satz.</p>
+    </div>
+    <div class="raster raster-2">
+      <div class="ebene">
+        <p class="protokoll-zeile">Tief drin</p>
+        <h3 class="ebene-titel">Immobilien und Finanzen</h3>
+        <p class="text">Über fünf Jahre B2B-Kommunikation, rund 20 CEOs auf LinkedIn positioniert. Ich kenne die Themen, die Leute und die ungeschriebenen Regeln. Du musst mir nichts erklären.</p>
+      </div>
+      <div class="ebene">
+        <p class="protokoll-zeile">Offen</p>
+        <h3 class="ebene-titel">Für alles andere</h3>
+        <!-- Nach Freigabe von Becki und Michi können hier Sony und MD Elektro genannt werden -->
+        <p class="text">Ich hab eine Pitchpräsentation für eine Bewerbung bei einem großen Medienkonzern gebaut und eine Website samt Flyer für einen Elektromeister mit sehr breiter Zielgruppe. Privat interessiert mich genauso viel: anderthalb Jahre Lateinamerika, Technik bis zur Superfan-Grenze, Sport. Wenn mich ein Thema packt, arbeite ich mich rein, bis ich mitreden kann.</p>
+      </div>
+    </div>
+    <p class="leitsatz">Neugier schlägt Fachgebiet<span class="sonne" aria-hidden="true"></span></p>
+    <div class="band-zeile">
+      <div class="band" aria-hidden="true">
+        <div class="band-spur">
+          <span class="band-wort">Immobilien</span><span class="band-punkt"></span>
+          <span class="band-wort">Finanzen</span><span class="band-punkt"></span>
+          <span class="band-wort">Elektrotechnik</span><span class="band-punkt"></span>
+          <span class="band-wort">Medien</span><span class="band-punkt"></span>
+          <span class="band-wort">Sport</span><span class="band-punkt"></span>
+          <span class="band-wort">Reisen</span><span class="band-punkt"></span>
+          <span class="band-wort">Technik</span><span class="band-punkt"></span>
+          <span class="band-wort">Immobilien</span><span class="band-punkt"></span>
+          <span class="band-wort">Finanzen</span><span class="band-punkt"></span>
+          <span class="band-wort">Elektrotechnik</span><span class="band-punkt"></span>
+          <span class="band-wort">Medien</span><span class="band-punkt"></span>
+          <span class="band-wort">Sport</span><span class="band-punkt"></span>
+          <span class="band-wort">Reisen</span><span class="band-punkt"></span>
+          <span class="band-wort">Technik</span><span class="band-punkt"></span>
+        </div>
+      </div>
+      <p class="nur-sr">Branchen: Immobilien, Finanzen, Elektrotechnik, Medien, Sport, Reisen, Technik.</p>
+      <a class="deine" href="#kontakt">deine?</a>
+    </div>
+    <div class="aus-einer-hand">
+      <h3 class="ueberschrift">Und alles aus einer Hand<span class="sonne" aria-hidden="true"></span></h3>
+      <p class="text">Ein Ansprechpartner für alles. Keine Übergaben, keine Schnittstellen, keine drei Agenturen, die aufeinander warten. Du erzählst es einmal, ich bau es.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 ABLAUF ============ -->
+<section id="ablauf" class="abschnitt">
+  <div class="innen">
+    <div class="kopfzeile">
+      <p class="nummer">05 / Ablauf</p>
+      <h2 class="ueberschrift">So läuft's mit mir<span class="sonne" aria-hidden="true"></span></h2>
+    </div>
+    <ol class="schritte">
+      <li class="schritt">
+        <span class="kennzahl">01</span>
+        <h3 class="schritt-titel">Du erzählst</h3>
+        <p class="text">Ein Gespräch, 30 Minuten, kostet nichts. Du sagst, was du vorhast, ich frag nach.</p>
+      </li>
+      <li class="schritt">
+        <span class="kennzahl">02</span>
+        <h3 class="schritt-titel">Ich schlag was vor</h3>
+        <p class="text">Schriftlich, konkret, mit Preis. Du weißt vorher, was du kriegst.</p>
+      </li>
+      <li class="schritt">
+        <span class="kennzahl">03</span>
+        <h3 class="schritt-titel">Wir bauen</h3>
+        <p class="text">Du bleibst im Bild, ohne dass ich dich mit Zwischenständen zuschütte.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 06 KONTAKT ============ -->
+<section id="kontakt" class="abschnitt kontakt">
+  <div class="innen">
+    <div class="kopfzeile">
+      <p class="nummer">06 / Kontakt</p>
+      <h2 class="ueberschrift">Erzähl mir von deinem Projekt<span class="sonne" aria-hidden="true"></span></h2>
+    </div>
+
+    <!-- Form.taxi: Formular-ID in data-form-id eintragen und action auf https://form.taxi/s/<ID> setzen. Leer = noch nicht startklar. -->
+    <form class="anfrage" id="anfrage" action="" method="post" data-form-id="" aria-label="Anfrage an Flo">
+      <p class="satz">
+        Hi Flo, ich bin
+        <label class="nur-sr" for="f-name">Dein Name, Pflichtfeld</label><input id="f-name" name="name" class="luecke" type="text" autocomplete="name" placeholder="Name" required aria-required="true" aria-describedby="fehler-name"><span class="stern" aria-hidden="true">*</span>
+        und ich hab
+        <label class="nur-sr" for="f-projekt">Dein Projekt in einem Satz</label><input id="f-projekt" name="projekt" class="luecke" type="text" placeholder="dein Projekt in einem Satz">
+        vor. Du erreichst mich unter
+        <label class="nur-sr" for="f-kontakt">E-Mail oder Telefon, Pflichtfeld</label><input id="f-kontakt" name="kontakt" class="luecke" type="text" autocomplete="email" placeholder="E-Mail oder Telefon" required aria-required="true" aria-describedby="fehler-kontakt"><span class="stern" aria-hidden="true">*</span>.
+        Ach ja, gefunden hab ich dich über
+        <label class="nur-sr" for="f-quelle">Wie hast du mich gefunden?</label><select id="f-quelle" name="gefunden_ueber" class="luecke">
+          <option value="">wähl aus</option>
+          <option>LinkedIn</option>
+          <option>Empfehlung</option>
+          <option>Suche</option>
+          <option>direkter Link</option>
+          <option>anders</option>
+        </select>.
+      </p>
+      <!-- Spamschutz von Form.taxi (Honeypot), für Menschen unsichtbar -->
+      <input type="text" name="_gotcha" class="honig" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <div class="fehlerblock" role="alert">
+        <p class="fehlertext" id="fehler-name" hidden>Ohne Namen wird das schwierig.</p>
+        <p class="fehlertext" id="fehler-kontakt" hidden>Wie erreich ich dich?</p>
+        <p class="fehlertext" id="fehler-senden" hidden>Da ist beim Abschicken was schiefgegangen. Versuch's gleich noch mal.</p>
+      </div>
+
+      <div class="formular-aktion">
+        <button type="submit" class="knopf" id="absenden">Ab damit</button>
+        <p class="hinweis">Ich antworte innerhalb von zwei Werktagen.</p>
+      </div>
+      <p class="noch-nicht" id="noch-nicht" hidden>Das Formular ist gleich startklar. <span class="linkedin-satz">Bis dahin erreichst du mich auf <a class="linkedin-link" href="https://www.linkedin.com/in/florian-piechullek-digital-marketing/" rel="me noopener">LinkedIn</a>.</span></p>
+      <noscript><p class="noch-nicht">Das Formular ist gleich startklar. <span class="linkedin-satz">Bis dahin erreichst du mich auf <a class="linkedin-link" href="https://www.linkedin.com/in/florian-piechullek-digital-marketing/" rel="me noopener">LinkedIn</a>.</span></p></noscript>
+      <p class="erklaerung"><span class="stern" aria-hidden="true">*</span> Pflichtfeld</p>
+    </form>
+
+    <div class="angekommen" id="angekommen" role="status" hidden tabindex="-1">
+      <p class="ueberschrift">Angekommen<span class="sonne" aria-hidden="true"></span></p>
+      <p class="text">Ich les das nachher in Ruhe und meld mich. Bis gleich.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FUSS ============ -->
+<footer class="fuss">
+  <div class="innen fuss-innen">
+    <div class="absender">
+      <a class="logo" href="#top" aria-label="flow, zum Seitenanfang">flow<span class="logo-sonne" aria-hidden="true"></span></a>
+      <span class="trenner" aria-hidden="true"></span>
+      <p class="protokoll-zeile">Digital Marketing Consulting<br>Florian / Flo</p>
+    </div>
+    <p class="erklaerung">Florian Piechullek Communications &amp; Brandbuilding · Berlin</p>
+    <nav class="fuss-nav" aria-label="Rechtliches und Profile">
+      <a class="linkedin-link" href="https://www.linkedin.com/in/florian-piechullek-digital-marketing/" rel="me noopener">LinkedIn</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </nav>
+  </div>
+</footer>
+
+<!-- Anfrage-Leiste, nur mobil -->
+<div class="anfrage-leiste" id="anfrage-leiste">
+  <a class="knopf" href="#kontakt">Erzähl mir von deinem Projekt</a>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
